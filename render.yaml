@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: django-backend
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt &&
+      python manage.py migrate
+    startCommand: gunicorn config.wsgi:application
+
+    branch: main
+    repo: https://github.com/JohnsonMasino/Codesino
